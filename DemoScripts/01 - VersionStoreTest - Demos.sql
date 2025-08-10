@@ -144,6 +144,7 @@ SET ACCELERATED_DATABASE_RECOVERY = ON
 WITH ROLLBACK IMMEDIATE;
 GO
 
+DBCC USEROPTIONS
 
 /* check the isolation states */
 SELECT snapshot_isolation_state_desc AS Is_Snapshot_On, 

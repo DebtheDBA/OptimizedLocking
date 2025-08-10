@@ -3,7 +3,7 @@
 Run this 3 times: 
 1. no RCSI & ADR
 2. with just optimized locking and no RCSI
-3. with both optized locking and RCSI
+3. with both optimized locking and RCSI
 
 In my testing, I saved the file as a different name after each test.
 */
