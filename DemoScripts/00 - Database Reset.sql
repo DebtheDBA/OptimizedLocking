@@ -2,11 +2,6 @@
 USE [AutoDealershipDemo]
 GO
 
-/* 
-Something to investigate - this has to be turned off in order to turn off optimized-locking
-how are these related? */
-ALTER DATABASE SCOPED CONFIGURATION SET OPTIMIZED_HALLOWEEN_PROTECTION = OFF;
-GO
 
 -- make sure this index is there
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE name = 'idx_Customer_State' AND object_id = OBJECT_ID(N'dbo.Customer'))
@@ -58,6 +53,33 @@ SET c.Email = NULL
 FROM dbo.Customer AS c
 WHERE c.FirstName = 'Sebastian'
 AND c.Email IS NOT NULL
+GO
+
+INSERT INTO dbo.Customer
+(
+    FirstName,
+    LastName,
+    Address,
+    City,
+    State,
+    ZipCode,
+    Email,
+    PhoneNumber,
+    FirstVisit,
+    RepeatCustomer
+)
+VALUES
+(   'Sebastian', -- FirstName - varchar(100)
+    'Melkin-Yun', -- LastName - varchar(100)
+    '1234 Chihuahua Lane', -- Address - varchar(50)
+    'Anywhere', -- City - varchar(50)
+    'MA', -- State - char(2)
+    '00000', -- ZipCode - char(5)
+    NULL, -- Email - varchar(100)
+    NULL, -- PhoneNumber - char(10)
+    GETDATE(), -- FirstVisit - date
+    NULL  -- RepeatCustomer - bit
+    )
 GO
 
 USE [master]

@@ -4,32 +4,6 @@ GO
 /* what happens with LAQ if the record will be updated 
 to match the next transaction? */
 
-INSERT INTO dbo.Customer
-(
-    FirstName,
-    LastName,
-    Address,
-    City,
-    State,
-    ZipCode,
-    Email,
-    PhoneNumber,
-    FirstVisit,
-    RepeatCustomer
-)
-VALUES
-(   'Sebastian', -- FirstName - varchar(100)
-    'Melkin-Yun', -- LastName - varchar(100)
-    '1234 Chihuahua Lane', -- Address - varchar(50)
-    'Anywhere', -- City - varchar(50)
-    'MA', -- State - char(2)
-    '00000', -- ZipCode - char(5)
-    NULL, -- Email - varchar(100)
-    NULL, -- PhoneNumber - char(10)
-    GETDATE(), -- FirstVisit - date
-    NULL  -- RepeatCustomer - bit
-    )
-GO
 
 /* record sets before we update them */
 SELECT * 
